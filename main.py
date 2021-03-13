@@ -8,22 +8,24 @@ import logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-nance_ws = BinanceWebsocket()
+ws = BinanceWebsocket()
 
 def handler(sig, frame):
-	logger.info(" This is the end !")
-	nance_ws.exit()
-	exit(0)
+	"""
+	Handler function which captures commands such as Ctrl+C to kill the program.
 
-def get_quotes(since):
-	temp = nance_ws.quote(since)
-	return(temp)
+	:param frame: Keyboard input.
+	:return: Exit the program and close the websocket.
+	"""
+	logger.info(" This is the end !")
+	ws.on_close()
+	exit(0)
 
 def main():
 	first = True
 	logger.info('Warming up the Engine')
 	sleep(3)
-	while nance_ws.ws.sock.connected:
+	while ws.ws.sock.connected:
 
 		now = datetime.datetime.now(pytz.utc)
 		
