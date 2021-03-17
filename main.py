@@ -26,20 +26,7 @@ def main():
 	logger.info('Warming up the Engine')
 	sleep(3)
 	while ws.ws.sock.connected:
-
-		now = datetime.datetime.now(pytz.utc)
-		
-		if first:
-			first = False
-
-		try:
-			since = now - datetime.timedelta(minutes=1)
-			#btc = get_quotes(since)
-			#print(btc)
-		
-		except Exception as e:
-			logger.error(str(e))
-			continue
+		pass
 
 if __name__ == '__main__':
 	signal(SIGINT, handler)

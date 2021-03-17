@@ -8,6 +8,7 @@ Several subroutines are implemented as seen below.
 import asyncio
 import json
 import websocket
+from database import DataBase
 import logging
 from threading import Thread
 import time
@@ -24,6 +25,8 @@ class BinanceWebsocket:
         self.logger.info("Connecting to Binance")
         self._connect()
         self.logger.info('Connected.')
+
+        self.db = DataBase()
         
         self.data = []
 
@@ -35,11 +38,7 @@ class BinanceWebsocket:
         :return: None. Pass message to database.
         """
         message = json.loads(message)
-        price = float(message['o']['p'])
-        quantity = float(message['o']['q'])
-        pair = str(message['o']['s'])
-
-        self.logger.info('Boi got liquidated and lost {} USD trading {}!! F'.format(round(price*quantity,2), pair))
+        self.db.new_message(message)
 
     def on_error(self, error):
         self.logger.info(error)
