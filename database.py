@@ -16,7 +16,7 @@ class DataBase(object):
         self.metrics = ""
 
         self.counter = 0
-        self.batch_size = 10000
+        self.batch_size = 50
         self.HOST = 'localhost'
         self.PORT = 9009
 
