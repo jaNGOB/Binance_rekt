@@ -16,13 +16,16 @@ source ~/conda/bin/activate
 ```
 2. pip install packages
 ```
-websocket_client  
+websocket-client  
 influx_line_protocol  
 pytz
 ```
-5. 'git clone https://github.com/jaNGOB/Binance_rekt.git'
+3. 'git clone https://github.com/jaNGOB/Binance_rekt.git'
 
 4. install tmux
+
+5. sudo apt-get install docker.io
+6. docker run -p 9000:9000 -p 9009:9009 questdb/questdb
 
 
 Just run main.py and it will save the data of all people getting liquidated into QuestDB. 
