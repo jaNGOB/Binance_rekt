@@ -27,10 +27,8 @@ class BinanceWebsocket:
         self.logger.info('Connected.')
 
         self.db = DataBase()
-        
-        self.data = []
 
-    def on_message(self, message) -> logging:
+    def on_message(self, message):
         """
         If we receive a message from binance, save it to the database for later access.
 
