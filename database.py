@@ -42,7 +42,6 @@ class DataBase(object):
             self.logger.info('Current count:{}'.format(self.counter))
 
         if self.counter % self.batch_size == 0:
-            self.logger.info('finished')
             bytes_metric = bytes(self.metrics, "utf-8")
             self.sock.sendall(bytes_metric)
             self.str_metric = ""
