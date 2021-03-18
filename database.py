@@ -38,10 +38,9 @@ class DataBase(object):
         self.str_metric += "\n"
         self.metrics += self.str_metric
 
-        if self.counter % 100 == 0:
-            self.logger.info('Current count:{}'.format(self.counter))
-
-        if self.counter % self.batch_size == 0:
+        if self.counter == self.batch_size:
+            self.logger.info('Batch inserted into DB')
+            self.counter = 0
             bytes_metric = bytes(self.metrics, "utf-8")
             self.sock.sendall(bytes_metric)
             self.str_metric = ""
