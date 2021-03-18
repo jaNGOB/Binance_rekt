@@ -8,7 +8,7 @@ Deployment on server:
 
 1. install miniforge 
 ```
-get -N https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh
+wget -N https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh
 
 bash Miniforge3-Linux-x86_64.sh -b -u -p ~/conda
 
