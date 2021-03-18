@@ -31,7 +31,7 @@ class DataBase(object):
         self.counter += 1
 
         self.metric.with_timestamp(message['E']*1000*1000)
-        self.metric.add_value('PRICE', float(message['o']['p']))
+        self.metric.add_value('PRICE', float(message['o']['ap']))
         self.metric.add_value('QUANTITY', float(message['o']['q']))
         self.metric.add_tag('PAIR', str(message['o']['s']))
         self.str_metric = str(self.metric)
