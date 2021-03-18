@@ -36,8 +36,7 @@ class BinanceWebsocket:
         :return: None. Pass message to database.
         """
         message = json.loads(message)
-        #self.db.new_message(message)
-        print(message)
+        self.db.new_message(message)
 
     def on_error(self, error):
         self.logger.info(error)
