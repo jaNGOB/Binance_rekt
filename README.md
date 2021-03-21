@@ -39,7 +39,7 @@ python main.py
 
 ## tmux
 To create a new tmux window: ```tmux```  
-To leave the window:         ```Ctrl+B+D```  
+To leave the window:         ```Ctrl+B``` then ```D```  
 To see existing windows:     ```tmux ls```  
 To connect to a window (where x is the window number): ```tmux a -t x```
 
