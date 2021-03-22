@@ -1,8 +1,6 @@
 from binance_connect import BinanceWebsocket
-import datetime
 from signal import signal, SIGINT
 from time import sleep
-import pytz
 import logging
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
@@ -22,7 +20,6 @@ def handler(sig, frame):
 	exit(0)
 
 def main():
-	first = True
 	logger.info('Warming up the Engine')
 	sleep(3)
 	while ws.ws.sock.connected:

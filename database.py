@@ -2,7 +2,6 @@ from influx_line_protocol import Metric
 import logging
 import socket
 
-
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 class DataBase(object):
@@ -15,8 +14,8 @@ class DataBase(object):
         self.str_metric = ""
         self.metrics = ""
 
-        self.counter = 0
-        self.batch_size = 50
+        self.COUNTER = 0
+        self.BATCH_SIZE = 50
         self.HOST = 'localhost'
         self.PORT = 9009
 
@@ -28,20 +27,21 @@ class DataBase(object):
         self.sock.close()
 
     def new_message(self, message):
-        self.counter += 1
+        self.COUNTER += 1
 
         self.metric.with_timestamp(message['E']*1000*1000)
         self.metric.add_value('PRICE', float(message['o']['p']))
         self.metric.add_value('QUANTITY', float(message['o']['q']))
+        self.metric.add_value('USDVALUE', float(message['o']['q']) * float(message['o']['p']))
         self.metric.add_tag('PAIR', str(message['o']['s']))
         self.str_metric = str(self.metric)
         self.str_metric += "\n"
         self.metrics += self.str_metric
 
-        if self.counter % 100 == 0:
-            self.logger.info('Current count:{}'.format(self.counter))
+        if self.COUNTER % 100 == 0:
+            self.logger.info('Current count:{}'.format(self.COUNTER))
 
-        if self.counter % self.batch_size == 0:
+        if self.COUNTER % self.BATCH_SIZE == 0:
             self.logger.info('finished')
             bytes_metric = bytes(self.metrics, "utf-8")
             self.sock.sendall(bytes_metric)
