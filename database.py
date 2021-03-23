@@ -30,7 +30,7 @@ class DataBase(object):
         self.COUNTER += 1
 
         self.metric.with_timestamp(message['E']*1000*1000)
-        self.metric.add_value('PRICE', float(message['o']['p']))
+        self.metric.add_value('PRICE', float(message['o']['ap']))
         self.metric.add_value('QUANTITY', float(message['o']['q']))
         self.metric.add_value('USDVALUE', float(message['o']['q']) * float(message['o']['p']))
         self.metric.add_tag('PAIR', str(message['o']['s']))
@@ -38,11 +38,9 @@ class DataBase(object):
         self.str_metric += "\n"
         self.metrics += self.str_metric
 
-        if self.COUNTER % 100 == 0:
-            self.logger.info('Current count:{}'.format(self.COUNTER))
-
-        if self.COUNTER % self.BATCH_SIZE == 0:
-            self.logger.info('finished')
+        if self.counter == self.batch_size:
+            self.logger.info('Batch inserted into DB')
+            self.counter = 0
             bytes_metric = bytes(self.metrics, "utf-8")
             self.sock.sendall(bytes_metric)
             self.str_metric = ""

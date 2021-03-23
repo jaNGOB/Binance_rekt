@@ -1,0 +1,22 @@
+select * from liqui;
+
+select PAIR, sum(PRICE)*sum(QUANTITY) as SUM, max(QUANTITY) as MAX, min(QUANTITY) as MIN, timestamp
+from liqui
+where PAIR = 'BTCUSDT'
+sample by 1h;
+
+select PAIR, sum(PRICE)*sum(QUANTITY) as TOTAL_LOSS , max(QUANTITY)*avg(PRICE) as MAX
+from liqui
+group by PAIR
+order by TOTAL_LOSS DESC;
+
+select PAIR, sum(PRICE)*sum(QUANTITY) as SUM, timestamp
+from liqui
+sample by 1h;
+
+select count(PAIR)
+from liqui;
+
+select distinct PAIR
+from liqui
+group by PAIR;
