@@ -18,8 +18,7 @@ source ~/conda/bin/activate
 ```
 conda install websocket-client pytz  
 pip install influx_line_protocol  
-sudo apt-get install tmux
-sudo apt-get install docker.io
+sudo apt-get install tmux docker.io
 ```
 3. Clone this repository
 ```
