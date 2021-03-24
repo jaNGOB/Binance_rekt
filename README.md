@@ -16,9 +16,8 @@ source ~/conda/bin/activate
 ```
 2. Install packages
 ```
-conda install websocket-client  
+conda install websocket-client pytz  
 pip install influx_line_protocol  
-pip install pytz
 sudo apt-get install tmux
 sudo apt-get install docker.io
 ```
