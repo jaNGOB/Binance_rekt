@@ -29,7 +29,8 @@ git clone https://github.com/jaNGOB/Binance_rekt.git
 tmux
 docker run -p 9000:9000 -p 9009:9009 questdb/questdb
 ```
-5. Create another tmux window and start our program
+5. Update credentials.ini with your twitter api information and a desired database name.  
+6. Create another tmux window and start our program
 ```
 tmux
 python main.py
