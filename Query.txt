@@ -1,6 +1,6 @@
 select * from liqui;
 
-select PAIR, sum(PRICE)*sum(QUANTITY) as SUM, max(QUANTITY) as MAX, min(QUANTITY) as MIN, timestamp
+select PAIR, sum(USDVALUE) as SUM, max(QUANTITY) as MAX, min(QUANTITY) as MIN, timestamp
 from liqui
 where PAIR = 'BTCUSDT'
 sample by 1h;
