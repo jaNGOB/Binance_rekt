@@ -16,7 +16,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 class BinanceWebsocket:
     
-    def __init__(self):
+    def __init__(self, name):
         
         self.logger = logging.getLogger(__name__)
         self.logger.debug("Initializing WebSocket.")
@@ -25,7 +25,7 @@ class BinanceWebsocket:
         self._connect()
         self.logger.info('Connected.')
 
-        self.db = DataBase()
+        self.db = DataBase(name)
 
     def on_message(self, message):
         """

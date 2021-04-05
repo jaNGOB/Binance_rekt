@@ -5,12 +5,12 @@ import socket
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 class DataBase(object):
-    def __init__(self):
+    def __init__(self, name):
 
         self.logger = logging.getLogger(__name__)
 
         # Initialize the metrics to be pushed into the database.
-        self.metric = Metric("liqui") # Name of the database. If it doesnt exist, one will be created.
+        self.metric = Metric(name) # Name of the database. If it doesnt exist, one will be created.
         self.str_metric = ""
         self.metrics = ""
 

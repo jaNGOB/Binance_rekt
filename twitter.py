@@ -7,14 +7,17 @@ import io
 import tweepy
 import random
 import requests
+import configparser as cp
 import pandas as pd
 
 
-consumer_key = "WRjmCSLytntBdPW0th9ZHcKKK"
-consumer_secret = "RdGL2JolhPR1aT6zyvj0TzsI8obygDcmRzpLu8Ane0hgqI8D1s"
-#access_token = "AAAAAAAAAAAAAAAAAAAAAIUFNwEAAAAAU4q3zupw5yQaZdIFUvV%2BDxnUaR4%3D3eO20Lg3f1bFcE8Yo1HFfdfLSXGgORqD48lSQKKND42k8lgH13"
-access_token = "1370006839270776836-md0iBjWYg6ZaYPuUivewXbrk31XA5f"
-access_token_secret = "ziJh5hjIZLd4Gz2p7gT3zuk1lFKlbpMfOvoshK8nBfPa1"
+config = cp.ConfigParser()
+config.read('credentials.ini')
+
+consumer_key = config['TWITTER']['consumer_key']
+consumer_secret = config['TWITTER']['consumer_secret']
+access_token = config['TWITTER']['access_token']
+access_token_secret = config['TWITTER']['access_token_secret']
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
