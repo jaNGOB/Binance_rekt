@@ -30,4 +30,4 @@ def main():
 
 if __name__ == '__main__':
 	signal(SIGINT, handler)
-	main(name)
+	main()
