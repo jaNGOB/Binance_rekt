@@ -43,3 +43,10 @@ To see existing windows:     ```tmux ls```
 To connect to a window (where x is the window number): ```tmux a -t x```
 
 Good luck and have fun watching people loose money.
+
+To tweet out regularly our hourly findings, we use a CRON-job. To create a new CRON-job, ```crontab -e``` can be typed into the Terminal which will open a file.  
+After the file is opened, the following line shoulb be added to the bottom of it.  
+```
+0 * * * * ~/Binance_rekt/twitter.py
+```
+
