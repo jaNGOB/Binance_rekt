@@ -41,6 +41,7 @@ def create_tweets():
     v = f.readlines()
     #x = random.randrange(0,len(v)-1,1)
     text = v[0].format(count,total,max_)
+    print(text)
     api.update_status(text)
 
 if __name__ == '__main__':
