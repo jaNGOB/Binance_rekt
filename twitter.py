@@ -32,7 +32,7 @@ def get_data():
     df = pd.read_csv(io.StringIO(rawData), parse_dates=['timestamp'], index_col='timestamp')
     last = df.last('1H')
 
-    return last.PAIR.count(), last.USDVALUE.max(), last.USDVALUE.sum()
+    return last.PAIR.count(), round(last.USDVALUE.max(), 2), round(last.USDVALUE.sum(), 2)
     
 
 def create_tweets():
@@ -41,7 +41,7 @@ def create_tweets():
     v = f.readlines()
     #x = random.randrange(0,len(v)-1,1)
     text = v[0].format(count,total,max_)
-    print(text)
+    # print(text)
     api.update_status(text)
 
 if __name__ == '__main__':
