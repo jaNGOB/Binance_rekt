@@ -1,3 +1,3 @@
-Imagine: {} people lost {:,.2f} USD in the past hour! Luckily you didn't lose {:,.2f} USD, you're a winner!
+Imagine: {} people lost {:,.2f} USD in the past hour! Luckily you didn't lose {:,.2f} USD, you're a winner! 
 Hello, I am line 2
 line 3
