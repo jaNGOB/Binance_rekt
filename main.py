@@ -1,3 +1,11 @@
+"""
+Main function of the project. Running this file will create a connection to Binance using 
+Websockets which in turn will create a connection to the Database.
+Once started, this program runs forever until it encounters an error or CTRL+c is pressed.
+
+April 2021
+"""
+
 from binance_connect import BinanceWebsocket
 from signal import signal, SIGINT
 import configparser as cp
@@ -9,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 config = cp.ConfigParser()
 config.read('credentials.ini')
-ws = BinanceWebsocket(config['DATABASE']['name'])
+ws = BinanceWebsocket(config['DATABASE']['name'], config['DATABASE']['batch_size'])
 
 def handler(sig, frame):
 	"""

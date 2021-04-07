@@ -1,6 +1,8 @@
 """
 This file reads data from a local QuestDB and creates a tweet. When providing the keys and secrets to the twitter account,
 it will automatically tweet out the collected statistics in a predefined format.
+
+April 2021
 """
 
 import io
@@ -27,7 +29,7 @@ def get_data():
     #query = ("select PAIR, sum(USDVALUE) as SUM, max(USDVALUE) as MAX, timestamp"
     #        +" from liqui sample by 1h;")
     #r = requests.get("http://localhost:9000/exp?query="+query)
-    r = requests.get("http://localhost:9000/exp?query=SELECT * FROM liqui;")
+    r = requests.get("http://localhost:9000/exp?query=SELECT * FROM {};".format(config['DATABASE']['name']))
     rawData = r.text
     df = pd.read_csv(io.StringIO(rawData), parse_dates=['timestamp'], index_col='timestamp')
     last = df.last('1H')

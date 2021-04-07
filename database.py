@@ -1,3 +1,12 @@
+"""
+This file connects to QuestDB and receives new liquidations.
+These liquidations are then added to a current batch until the batch_size is reached.
+Once its reached, the whole batch gets pushed to the database using the 
+influx_line_protocol.
+
+April 2021
+"""
+
 from influx_line_protocol import Metric
 import logging
 import socket
@@ -5,7 +14,7 @@ import socket
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 class DataBase(object):
-    def __init__(self, name):
+    def __init__(self, name, batch_size):
 
         self.logger = logging.getLogger(__name__)
 
@@ -15,7 +24,7 @@ class DataBase(object):
         self.metrics = ""
 
         self.COUNTER = 0
-        self.BATCH_SIZE = 50
+        self.BATCH_SIZE = batch_size
         self.HOST = 'localhost'
         self.PORT = 9009
 

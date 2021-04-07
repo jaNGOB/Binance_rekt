@@ -3,6 +3,8 @@ Binance websocket. This Object connects to the stream of forced orders
 which are orders Binance executes on behalf of the trader becuase they are being 
 liquidated. 
 Several subroutines are implemented as seen below.
+
+April 2021
 """
 
 import json
@@ -16,7 +18,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 class BinanceWebsocket:
     
-    def __init__(self, name):
+    def __init__(self, name, batch_size):
         
         self.logger = logging.getLogger(__name__)
         self.logger.debug("Initializing WebSocket.")
@@ -25,7 +27,7 @@ class BinanceWebsocket:
         self._connect()
         self.logger.info('Connected.')
 
-        self.db = DataBase(name)
+        self.db = DataBase(name, batch_size)
 
     def on_message(self, message):
         """
