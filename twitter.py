@@ -6,6 +6,7 @@ April 2021
 """
 
 import io
+import os
 import tweepy
 import random
 import requests
@@ -14,7 +15,7 @@ import pandas as pd
 
 
 config = cp.ConfigParser()
-config.read('credentials.ini')
+config.read('{}/credentials.ini'.format(os.path.abspath(os.getcwd())))
 
 consumer_key = config['TWITTER']['consumer_key']
 consumer_secret = config['TWITTER']['consumer_secret']

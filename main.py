@@ -5,7 +5,7 @@ Once started, this program runs forever until it encounters an error or CTRL+c i
 
 April 2021
 """
-
+import os
 from binance_connect import BinanceWebsocket
 from signal import signal, SIGINT
 import configparser as cp
@@ -16,7 +16,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 
 config = cp.ConfigParser()
-config.read('credentials.ini')
+config.read('{}/credentials.ini'.format(os.path.abspath(os.getcwd())))
 ws = BinanceWebsocket(config['DATABASE']['name'], config['DATABASE']['batch_size'])
 
 def handler(sig, frame):
