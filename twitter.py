@@ -15,8 +15,9 @@ import pandas as pd
 
 
 print('{}/credentials.ini'.format(os.path.abspath(os.getcwd())))
+print('{}/credentials.ini'.format(os.path.dirname(os.path.abspath(__file__))))
 config = cp.ConfigParser()
-config.read('{}/credentials.ini'.format(os.path.abspath(os.getcwd())))
+config.read('{}/credentials.ini'.format(os.path.dirname(os.path.abspath(__file__))))
 
 consumer_key = config['TWITTER']['consumer_key']
 consumer_secret = config['TWITTER']['consumer_secret']
