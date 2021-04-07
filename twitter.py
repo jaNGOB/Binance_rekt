@@ -21,7 +21,7 @@ access_token_secret = config['TWITTER']['access_token_secret']
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
-api = tweepy.API(auth,wait_on_rate_limit=True)
+api = tweepy.API(auth, wait_on_rate_limit=True)
 
 def get_data():
     #query = ("select PAIR, sum(USDVALUE) as SUM, max(USDVALUE) as MAX, timestamp"
@@ -40,7 +40,7 @@ def create_tweets():
     f = open("tweets.txt")
     v = f.readlines()
     #x = random.randrange(0,len(v)-1,1)
-    text = v[0].format(count,total,max_)
+    text = v[0].format(count, total, max_)
     # print(text)
     api.update_status(text)
 
