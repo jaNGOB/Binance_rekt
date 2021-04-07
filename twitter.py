@@ -14,8 +14,6 @@ import configparser as cp
 import pandas as pd
 
 
-print('{}/credentials.ini'.format(os.path.abspath(os.getcwd())))
-print('{}/credentials.ini'.format(os.path.dirname(os.path.abspath(__file__))))
 config = cp.ConfigParser()
 config.read('{}/credentials.ini'.format(os.path.dirname(os.path.abspath(__file__))))
 
@@ -42,7 +40,7 @@ def get_data():
 
 def create_tweets():
     count, max_, total = get_data()
-    f = open("tweets.txt")
+    f = open('{}/tweets.txt'.format(os.path.dirname(os.path.abspath(__file__))))
     v = f.readlines()
     #x = random.randrange(0,len(v)-1,1)
     text = v[0].format(count, total, max_)
