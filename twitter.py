@@ -14,6 +14,7 @@ import configparser as cp
 import pandas as pd
 
 
+print('{}/credentials.ini'.format(os.path.abspath(os.getcwd())))
 config = cp.ConfigParser()
 config.read('{}/credentials.ini'.format(os.path.abspath(os.getcwd())))
 
