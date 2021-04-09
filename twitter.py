@@ -27,15 +27,16 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth, wait_on_rate_limit=True)
 
 def get_data():
-    #query = ("select PAIR, sum(USDVALUE) as SUM, max(USDVALUE) as MAX, timestamp"
-    #        +" from liqui sample by 1h;")
-    #r = requests.get("http://localhost:9000/exp?query="+query)
-    r = requests.get("http://localhost:9000/exp?query=SELECT * FROM {};".format(config['DATABASE']['name']))
+    query = ("SELECT count() AS count, sum(USDVALUE) AS sum, max(USDVALUE) AS max "
+            +"FROM liqui "
+            +"WHERE timestamp > now() - 3600000000L;")
+    r = requests.get("http://localhost:9000/exp?query="+query)
+    #r = requests.get("http://localhost:9000/exp?query=SELECT * FROM {};".format(config['DATABASE']['name']))
     rawData = r.text
-    df = pd.read_csv(io.StringIO(rawData), parse_dates=['timestamp'], index_col='timestamp')
-    last = df.last('1H')
+    df = pd.read_csv(io.StringIO(rawData))#, parse_dates=['timestamp'], index_col='timestamp')
+    #last = df.last('1H')
 
-    return last.PAIR.count(), round(last.USDVALUE.max(), 2), round(last.USDVALUE.sum(), 2)
+    return df['count'].values[0], round(df['max'].values[0], 2), round(df['sum'].values[0], 2)
     
 
 def create_tweets():
