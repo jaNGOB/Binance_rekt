@@ -55,7 +55,7 @@ def create_tweet():
     count, max_, total = get_data()
     f = open('{}/tweets.txt'.format(os.path.dirname(os.path.abspath(__file__))))
     v = f.readlines()
-    x = random.randrange(0,len(v)-1,1)
+    x = random.randrange(0,len(v),1)
     text = v[x].format(count, total, max_)
     # print(text)
     api.update_status(text)
