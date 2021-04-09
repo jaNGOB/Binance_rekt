@@ -56,7 +56,7 @@ def create_tweet():
     texts = []
     with open('{}/tweets.txt'.format(os.path.dirname(os.path.abspath(__file__))), encoding="utf8") as f:
         for line in f:
-            texts.append(line)
+            texts.append(line.strip())
     x = random.randrange(0,len(texts),1)
     text = texts[x].format(count, total, max_)
     # print(text)
