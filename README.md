@@ -47,6 +47,5 @@ Good luck and have fun watching people loose money.
 To tweet out regularly our hourly findings, we use a CRON-job. To create a new CRON-job, ```crontab -e``` can be typed into the Terminal which will open a file.  
 After the file is opened, the following line shoulb be added to the bottom of it.  
 ```
-0 * * * * ~/Binance_rekt/twitter.py
+0 * * * * ~/conda/bin/python3.8 ~/Binance_rekt/twitter.py
 ```
-
