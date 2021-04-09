@@ -1,3 +1,4 @@
 Imagine: {} people lost {:,.2f} USD in the past hour! Luckily you didn't lose {:,.2f} USD, you're a winner! 
-Hello, I am line 2
-line 3
+This just in: {} people lost {:,.2f} USD in the past hour! The maximum loss was {:,.2f} USD! 
+Sadge, {} people lost {:,.2f} USD in the past hour! But one guy got hit extra hard, loosing {:,.2f} USD in one liquidation! 
+Let's hope you're not part of the {} people who lost {:,.2f} USD in the past hour! Especially not the guy who lost {:,.2f} USD!
