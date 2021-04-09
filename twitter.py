@@ -53,12 +53,10 @@ def create_tweet():
     of this function.
     """
     count, max_, total = get_data()
-    texts = []
-    with open('{}/tweets.txt'.format(os.path.dirname(os.path.abspath(__file__))), encoding="utf8") as f:
-        for line in f:
-            texts.append(line.strip())
-    x = random.randrange(0,len(texts),1)
-    text = texts[x].format(count, total, max_)
+    f = open('{}/tweets.txt'.format(os.path.dirname(os.path.abspath(__file__))))
+    v = f.readlines()
+    x = random.randrange(0,len(v),1)
+    text = v[x].format(count, total, max_).encode().decode('unicode_escape')
     # print(text)
     api.update_status(text)
 
