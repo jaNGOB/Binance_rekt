@@ -1,7 +1,7 @@
 """
 This file connects to QuestDB and receives new liquidations.
 These liquidations are then added to a current batch until the batch_size is reached.
-Once its reached, the whole batch gets pushed to the database using the 
+Once it is reached, the whole batch gets pushed to the database using the 
 influx_line_protocol.
 
 April 2021
