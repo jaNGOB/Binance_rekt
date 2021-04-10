@@ -3,5 +3,5 @@ This just in: {} people lost {:,.2f} USD \U0001F915 in the past hour! The maximu
 Sadge\U0001F972, {} people lost {:,.2f} USD in the past hour! But one guy got hit extra hard, loosing {:,.2f} USD in one liquidation! \U0001F915 
 Let's hope you're not part of the {} people who lost {:,.2f} USD in the past hour! \U0001F635 Especially not the guy who lost {:,.2f} USD!\U0001F4A5\U0001F4A5
 \U0001F6A8 \U0001F6A8 \U0001F6A8 {} people lost {:,.2f} in the last hour! Someone even lost {:,.2f}USD!\U0001F4B8\U0001F4B8
- {} people, lost {:,.2f}. Someone even lost {:,.2f}USD! \U0001F90C \U0001F90C \U0001F90C \U0001F1FA
-F for the {} people that lost money in the last hour. {:,.2f}USD lost 4-ever. One guy even managed to loose {:,.2f}USD, strong! \U0001F1E9
+ {} people, lost {:,.2f}. Someone even lost {:,.2f}USD! \U0001F90C \U0001F90C \U0001F90C 
+F for the {} people that lost money in the last hour. {:,.2f} USD lost 4-ever. One guy even managed to loose {:,.2f} USD, strong! \U0001F940
