@@ -1,6 +1,6 @@
 # Binance_rekt
 
-Hello and welcome?
+Hello and welcome :)
 
 
 Deployment on server:
