@@ -33,9 +33,15 @@ class DataBase(object):
 
 
     def close_sock(self):
+        """Close the socket to the DB"""
         self.sock.close()
 
     def new_message(self, message):
+        """
+        This function receives a message from the websocket and temporarily 
+        stores chosen values in a string. As soon as BATCH_SIZE is reached,
+        the whole batch wil
+        """
         self.COUNTER += 1
 
         self.metric.with_timestamp(message['E']*1000*1000)
