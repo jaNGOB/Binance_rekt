@@ -1,6 +1,6 @@
 # Binance_rekt
 
-Hello and welcome to Mission: "Burning Money!"
+Hello and welcome to Mission: "Geldverbrennung!"
 
 
 Deployment on server:
