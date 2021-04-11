@@ -42,7 +42,7 @@ class DataBase(object):
         stores chosen values in a string. As soon as BATCH_SIZE is reached,
         the whole batch will be pushed into the database.
 
-        :param message: decoded json message
+        :param message: decoded json message 
         """
         self.COUNTER += 1
 
