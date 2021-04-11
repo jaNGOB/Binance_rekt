@@ -40,7 +40,9 @@ class DataBase(object):
         """
         This function receives a message from the websocket and temporarily 
         stores chosen values in a string. As soon as BATCH_SIZE is reached,
-        the whole batch wil
+        the whole batch will be pushed into the database.
+
+        :param message: decoded json message
         """
         self.COUNTER += 1
 
