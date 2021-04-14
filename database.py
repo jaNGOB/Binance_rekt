@@ -45,7 +45,7 @@ class DataBase(object):
         :param message: decoded json message 
         """
         self.COUNTER += 1
-
+        
         self.metric.with_timestamp(message['E']*1000*1000)
         self.metric.add_value('PRICE', float(message['o']['ap']))
         self.metric.add_value('QUANTITY', float(message['o']['q']))

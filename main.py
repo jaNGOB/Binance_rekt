@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 config = cp.ConfigParser()
 config.read('{}/credentials.ini'.format(os.path.abspath(os.getcwd())))
-ws = BinanceWebsocket(config['DATABASE']['name'], config['DATABASE']['batch_size'])
+ws = BinanceWebsocket(config['DATABASE']['name'], int(config['DATABASE']['batch_size']))
 
 def handler(sig, frame):
 	"""
